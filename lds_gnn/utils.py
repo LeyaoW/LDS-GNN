@@ -159,6 +159,7 @@ from collections import defaultdict, OrderedDict
 import far_ho as far
 import numpy as np
 import tensorflow as tf
+import fickling
 
 
 VERSION = 1
@@ -322,7 +323,7 @@ def update_append_v2(dct: dict, upd_dct: dict):
 def gz_read(name, results=True):
     name = '{}/{}.gz'.format(SAVE_DIR, name) if results else '{}.gz'.format(name)
     with gzip.open(name, 'rb') as f:
-        return pickle.load(f)
+        return fickling.load(f)
 
 
 def gz_write(content, name, results=True):
